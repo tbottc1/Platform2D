@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void RestartLevel()
+    public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

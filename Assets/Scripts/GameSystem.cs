@@ -4,12 +4,9 @@ using TMPro;
 public class GameSystem : MonoBehaviour
 {
 
-
-    public GameObject winImage;
-
     public int collectibles = 0;
     public int collectiblesNeeded = 3;
-
+    public TextMeshProUGUI gameOverText;
 
     public void AddCollectible()
     {
@@ -28,16 +25,15 @@ public class GameSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        winImage.SetActive(false);
+        gameOverText.gameObject.SetActive(false);
     }
 
 
     public void WinScreen()
     {
-        Debug.Log("we got here.");
+        gameOverText.gameObject.SetActive(true);
+        FindAnyObjectByType<PlayerMovement>().RestartLevel();
 
-        
-        winImage.SetActive(true);
     }
     // Update is called once per frame
     void Update()
